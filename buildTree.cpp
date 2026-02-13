@@ -59,6 +59,18 @@ static bool isValidString(const std::string& ss){
 }
 
 static bool isValidChar(char c){
-    //TODO: Implement allowed character logic
-    return true;
+    //we cast to unsigned char because isalpha() and isdigit() expect an unsigned char. Passing
+    //negative char values is undefined behavior
+    unsigned char uc = static_cast<unsigned char>(c);
+
+    if (std::isalpha(uc))
+        return true;
+
+    if (std::isdigit(uc))
+        return true;
+
+    if (uc >= 33 && uc <= 47)
+        return true;
+
+    return false;
 }
