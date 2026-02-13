@@ -1,0 +1,14 @@
+# Executable
+P1
+
+# Object files
+*.o
+
+# Traversal output files
+*.levelorder
+*.preorder
+*.postorder
+
+# Archives
+*.tar
+*.zip
