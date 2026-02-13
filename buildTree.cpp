@@ -53,8 +53,12 @@ static node_t* insert(node_t* root, const std::string& str){
 isValidString:
 Checks if entire string contains only allowed characters
  */
-static bool isValidString(const std::string& ss){
-    //TODO: Loop through characters and validate
+static bool isValidString(const std::string& s){
+    for (char c: s){
+        if (!isValidChar(c)){
+            return false;
+        }
+    }
     return true;
 }
 
