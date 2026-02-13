@@ -43,9 +43,39 @@ node_t* buildTree(FILE* file){
 /*
 insert:
 Inserts string into BST based on ASCII Key
+
+After each insertion:
+    Left subtree keys < root key
+    Right subtree keys > root key
+    Each node's strings all share same first character
  */
 static node_t* insert(node_t* root, const std::string& str){
-    //TODO: Implement BST insertion logic
+    int key = static_cast<int>(str[0]); //Computes key from ascii of first character
+
+    //base case: if we've found where the node belongs, create a new node, store the string, return pointer to the node
+    if (root == NULL){
+        node_t* newNode = new node_t(key);
+        newNode -> strings.push_back(str);
+        return newNode;
+    }
+
+    //go left: recursively
+    if (key < root -> key){
+        root -> left = insert(root -> left, str);
+    }
+
+    //go right: recursively
+    else if (key > root -> key){
+        root -> right = insert(root -> right, str);
+    }
+
+    //Equal key -> add to existing node's bucket
+    //Preserves bucket invariant
+    else {
+        root -> strings.push_back(str);
+    }
+
+    //always return subtree root (pointer)
     return root;
 }
 
