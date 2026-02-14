@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -g -Wall -std=c++11
 
-OBJS = main.o buildTree.o traversals.o
+OBJS = main.o buildTree.o traversals.o treeUtils.o
 TARGET = P1
 
 $(TARGET): $(OBJS)
@@ -15,6 +15,9 @@ buildTree.o: buildTree.cpp buildTree.h node.h
 
 traversals.o: traversals.cpp traversals.h node.h
 	$(CXX) $(CXXFLAGS) -c traversals.cpp
+
+treeUtils.o: treeUtils.h treeUtils.cpp node.h
+	$(CXX) $(CXXFLAGS) -c treeUtils.cpp
 
 clean:
 	rm -f *.o $(TARGET)
