@@ -1,6 +1,18 @@
-//
-// Created by Jory on 2/13/2026.
-//
+/*******************************************************
+* Name:        Jory Ehman
+ * Course:      Program Translation / Compilers
+ * Project:     P1
+ * File:        main.cpp
+ * Description:
+ *   Entry point of the program. Handles command-line
+ *   argument validation (P0 discipline), opens input
+ *   file or uses standard input, invokes tree
+ *   construction, performs all required traversals,
+ *   and ensures proper memory cleanup before exit.
+ *
+ *   This file coordinates all modules but does not
+ *   implement tree logic directly.
+ *******************************************************/
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>

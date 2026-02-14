@@ -1,6 +1,24 @@
-//
-// Created by Jory on 2/13/2026.
-//
+/*******************************************************
+ * Name:        Jory Ehman
+ * Course:      Program Translation / Compilers
+ * Project:     P1
+ * File:        traversals.cpp
+ * Description:
+ *   Implements all required tree traversal algorithms:
+ *
+ *     - Pre-order (Node, Left, Right)
+ *     - Post-order (Left, Right, Node)
+ *     - Level-order (Breadth-first using queue)
+ *
+ *   Each traversal outputs:
+ *     - Depth level
+ *     - ASCII key
+ *     - Associated strings
+ *   with indentation of 4 spaces per depth level.
+ *
+ *   Recursive helpers are declared static to limit
+ *   visibility outside this file.
+ *******************************************************/
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -91,6 +109,7 @@ void traversePreOrder(node_t* root, const char baseName[]){
     fclose(outFile);
 }
 
+//Traverse Post Order
 void traversePostOrder(node_t* root, const char baseName[]){
     char fileName[256];
 

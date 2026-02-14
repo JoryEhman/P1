@@ -1,12 +1,18 @@
-//
-// Created by Jory Ehman on 2/14/26.
-//
+/*******************************************************
+* Name:        Jory Ehman
+ * Course:      Program Translation / Compilers
+ * Project:     P1
+ * File:        treeUtils.cpp
+ * Description:
+ *   Implements memory cleanup utilities for the BST.
+ *   Specifically provides a post-order deletion
+ *   routine to safely deallocate all dynamically
+ *   allocated nodes.
+ *
+ *   Children are deleted before parents to prevent
+ *   dereferencing freed memory.
+ *******************************************************/
 #include "treeUtils.h"
-
-/*
-deleteTree:
-Frees the entire BST using post-order traversal
- */
 
 void deleteTree(node_t* root){
    if (root == NULL)

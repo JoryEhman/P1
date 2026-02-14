@@ -1,3 +1,15 @@
+########################################################
+# Name:        Jory Ehman
+# Course:      Program Translation / Compilers
+# Project:     P1
+# File:        Makefile
+# Description:
+#   Builds executable P1 using g++ with debugging and
+#   warning flags enabled. Provides clean target to
+#   remove object files, executable, and traversal
+#   output files.
+########################################################
+
 CXX = g++
 CXXFLAGS = -g -Wall -std=c++11
 

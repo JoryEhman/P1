@@ -1,7 +1,18 @@
-//
-// Created by Jory on 2/13/2026.
-//
-
+/*******************************************************
+* Name:        Jory Ehman
+ * Course:      Program Translation / Compilers
+ * Project:     P1
+ * File:        node.h
+ * Description:
+ *   Defines the node_t structure used to implement
+ *   the binary search tree. Each node stores:
+ *     - ASCII key (based on first character)
+ *     - Left and right child pointers
+ *     - A vector of strings sharing the same key
+ *
+ *   This structure represents the core data model
+ *   for the BST used throughout the program.
+ *******************************************************/
 #ifndef NODE_H
 #define NODE_H
 

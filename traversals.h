@@ -1,7 +1,18 @@
-//
-// Created by Jory on 2/13/2026.
-//
-
+/*******************************************************
+* Name:        Jory Ehman
+ * Course:      Program Translation / Compilers
+ * Project:     P1
+ * File:        traversals.h
+ * Description:
+ *   Declares traversal functions for the BST:
+ *
+ *     - Pre-order traversal
+ *     - Post-order traversal
+ *     - Level-order traversal
+ *
+ *   Each traversal writes formatted output to a file
+ *   derived from the provided base filename.
+ *******************************************************/
 #ifndef TRAVERSALS_H
 #define TRAVERSALS_H
 

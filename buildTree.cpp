@@ -1,7 +1,20 @@
-//
-// Created by Jory on 2/13/2026.
-//
-
+/*******************************************************
+* Name:        Jory Ehman
+ * Course:      Program Translation / Compilers
+ * Project:     P1
+ * File:        buildTree.cpp
+ * Description:
+ *   Implements logic for constructing the binary
+ *   search tree from input. This includes:
+ *
+ *     - Reading tokens from input stream
+ *     - Validating characters according to spec
+ *     - Inserting strings into the BST
+ *     - Maintaining ASCII-based ordering invariant
+ *
+ *   All helper functions in this file are declared
+ *   static to restrict linkage to this translation unit.
+ *******************************************************/
 #include <cstdio>
 #include <cstdlib>
 #include <string>
@@ -21,8 +34,8 @@ Reads input from FILE*, validates Tokens, inserts into BST, and returns root.
  */
 
 node_t* buildTree(FILE* file){
-   node_t* root = NULL;
 
+   node_t* root = NULL;
    char buffer[1024]; //sets buffer size
 
    //we allow 1023+null terminator character when scanning to ensure buffer is not overflowed
