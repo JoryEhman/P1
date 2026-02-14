@@ -1,0 +1,263 @@
+P1 – Binary Search Tree Construction and Traversals
+
+Course:
+Program Translation / Compilers
+
+Author:
+Jory Ehman
+
+
+OVERVIEW
+
+This program constructs a Binary Search Tree (BST) using the ASCII
+value of the first character of each input string as the key.
+
+Each node contains:
+- An integer key (ASCII value)
+- Left and right child pointers
+- A vector of strings sharing the same key
+
+The program:
+1. Reads input from standard input or a file.
+2. Validates characters according to project rules.
+3. Builds the BST while maintaining ordering invariants.
+4. Produces three traversal outputs:
+   - Pre-order
+   - Post-order
+   - Level-order
+5. Frees all dynamically allocated memory before exiting.
+
+
+------------------------------------------------------------
+COMPILATION
+------------------------------------------------------------
+
+To compile the program:
+
+    make
+
+This creates the executable:
+
+    P1
+
+
+------------------------------------------------------------
+CLEANING THE PROJECT
+------------------------------------------------------------
+
+To remove:
+- Object files (*.o)
+- Executable (P1)
+- Generated traversal output files (*.preorder, *.postorder, *.levelorder)
+
+Run:
+
+    make clean
+
+
+------------------------------------------------------------
+RUNNING THE PROGRAM
+------------------------------------------------------------
+
+1) Running Without an Input File (Keyboard Mode)
+
+    ./P1
+
+You may now type input directly, for example:
+
+    M C T A E R Z
+
+When finished entering input, press:
+
+    CTRL + D
+
+This will generate:
+
+    out.preorder
+    out.postorder
+    out.levelorder
+
+
+------------------------------------------------------------
+
+2) Running With an Input File
+
+General usage:
+
+    ./P1 filename.txt
+
+Example:
+
+    ./P1 test1.txt
+
+This generates:
+
+    test1.preorder
+    test1.postorder
+    test1.levelorder
+
+Note:
+The .txt extension is removed before traversal suffixes are added.
+
+
+------------------------------------------------------------
+INCLUDED TEST FILES
+------------------------------------------------------------
+
+test1.txt – Balanced Tree
+
+Contents:
+    M C T A E R Z
+
+Run:
+    ./P1 test1.txt
+
+Verifies:
+- Balanced BST construction
+- Correct indentation (4 spaces per depth)
+- Proper preorder, postorder, and levelorder outputs
+
+
+------------------------------------------------------------
+
+test2.txt – Multiple Strings Same ASCII Key
+
+Contents:
+    apple ant a1 alpha
+
+Run:
+    ./P1 test2.txt
+
+Verifies:
+- Only one node created (ASCII 97)
+- All strings stored in same vector
+- Single-line traversal output
+
+
+------------------------------------------------------------
+
+test3.txt – Case Sensitivity (ASCII Ordering)
+
+Contents:
+    Apple ant A1
+
+Run:
+    ./P1 test3.txt
+
+Verifies:
+- ASCII 65 ('A') vs ASCII 97 ('a')
+- Proper left/right placement
+
+
+------------------------------------------------------------
+
+test4.txt – Deep Unbalanced Tree
+
+Contents:
+    A B C D E F G
+
+Run:
+    ./P1 test4.txt
+
+Verifies:
+- Right-skewed tree structure
+- Proper recursion depth handling
+- Correct indentation scaling
+
+
+------------------------------------------------------------
+
+test5.txt – Invalid Character Detection
+
+Contents:
+    valid1 invalid~
+
+Run:
+    ./P1 test5.txt
+
+Expected output:
+    Error: Invalid character encountered
+
+No traversal files should be created.
+
+
+------------------------------------------------------------
+
+test6.txt – Empty File
+
+(Empty file)
+
+Run:
+    ./P1 test6.txt
+
+Expected output:
+    Error: Missing data
+
+No traversal files should be created.
+
+
+------------------------------------------------------------
+IMPROPER USAGE
+------------------------------------------------------------
+
+If more than one filename is provided:
+
+    ./P1 file1.txt file2.txt
+
+Output:
+
+    Fatal: Improper usage
+    Usage: P1 [filename]
+
+
+------------------------------------------------------------
+TREE INVARIANT
+------------------------------------------------------------
+
+The BST maintains:
+
+- Left subtree keys < current node key
+- Right subtree keys > current node key
+- Equal keys stored in the same node
+
+
+------------------------------------------------------------
+TRAVERSAL OUTPUT FORMAT
+------------------------------------------------------------
+
+Each output line follows:
+
+    <depth> <ascii_key> <strings>
+
+Indented by 4 spaces per depth level.
+
+Traversal types implemented:
+
+- Pre-order (Node → Left → Right)
+- Post-order (Left → Right → Node)
+- Level-order (Breadth-first using queue)
+
+
+------------------------------------------------------------
+MEMORY MANAGEMENT
+------------------------------------------------------------
+
+All nodes are dynamically allocated using new.
+
+Memory is freed using post-order deletion:
+
+    deleteTree(node_t* root);
+
+This ensures no memory leaks.
+
+
+------------------------------------------------------------
+TARGET ENVIRONMENT
+------------------------------------------------------------
+
+Platform: hellbender
+Compiler: g++
+Standard: C++11
+No use of "using namespace std"
+Modular procedural design
+No global variables
