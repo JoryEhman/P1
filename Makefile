@@ -20,4 +20,4 @@ treeUtils.o: treeUtils.h treeUtils.cpp node.h
 	$(CXX) $(CXXFLAGS) -c treeUtils.cpp
 
 clean:
-	rm -f *.o $(TARGET)
+	rm -f *.o *.levelorder *.postorder *.preorder $(TARGET)
