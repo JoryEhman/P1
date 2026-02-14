@@ -27,6 +27,7 @@ node_t* buildTree(FILE* file){
 
    //we allow 1023+null terminator character when scanning to ensure buffer is not overflowed
    while(fscanf(file, "%1023s", buffer) == 1){
+
        std::string token(buffer);
 
        if (!isValidString(token)){
@@ -50,6 +51,7 @@ After each insertion:
     Each node's strings all share same first character
  */
 static node_t* insert(node_t* root, const std::string& str){
+
     int key = static_cast<int>(str[0]); //Computes key from ascii of first character
 
     //base case: if we've found where the node belongs, create a new node, store the string, return pointer to the node
@@ -84,6 +86,7 @@ isValidString:
 Checks if entire string contains only allowed characters
  */
 static bool isValidString(const std::string& s){
+
     for (char c: s){
         if (!isValidChar(c)){
             return false;

@@ -12,11 +12,14 @@
 int main(int argc, char* argv[]){
 
     FILE* file = NULL;
+    //Base name buffer (this must persist for traversal calls)
+    char baseNameBuffer[256];
     const char* baseName = NULL;
 
     if (argc == 1){
         file = stdin;
-        baseName = "out";
+        strcpy(baseNameBuffer, "out");
+        baseName = baseNameBuffer;
     }
     else if (argc == 2){
 
@@ -27,7 +30,15 @@ int main(int argc, char* argv[]){
             exit(EXIT_FAILURE);
         }
 
-        baseName = argv[1];
+        strncpy(baseNameBuffer, argv[1], sizeof(baseNameBuffer));
+        baseNameBuffer[sizeof(baseNameBuffer) - 1] = '\0';
+
+        //Strip the extension if possible
+        char* dot = strrchr(baseNameBuffer, '.');
+        if (dot != NULL){
+            *dot = '\0';
+        }
+        baseName = baseNameBuffer;
     }
     else {
         fprintf(stderr, "Fatal: Improper usage\n");
@@ -49,8 +60,8 @@ int main(int argc, char* argv[]){
     }
 
     //perform traversals
-    traverseLevelOrder(root, baseName);
     traversePreOrder(root, baseName);
+    traverseLevelOrder(root, baseName);
     traversePostOrder(root, baseName);
 
     return 0;

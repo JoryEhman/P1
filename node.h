@@ -8,7 +8,8 @@
 #include <vector>
 #include <string>
 
-struct node_t {
+struct node_t
+{
     int key;
     node_t* left;
     node_t* right;
@@ -19,6 +20,7 @@ struct node_t {
         left = NULL;
         right = NULL;
     }
+
 };
 
 #endif //NODE_H
