@@ -64,5 +64,8 @@ int main(int argc, char* argv[]){
     traverseLevelOrder(root, baseName);
     traversePostOrder(root, baseName);
 
+    //Calls deletion constructor to free memory
+    delete(root);
+
     return 0;
 }
